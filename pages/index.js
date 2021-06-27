@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Welcome from '../components/layout/Welcome'
 
 const index = () => {
-  return <div>Hello world</div>
+  return (
+    <Fragment>
+      <Welcome />
+    </Fragment>
+  )
 }
 
 export default index
