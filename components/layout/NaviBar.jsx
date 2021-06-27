@@ -19,7 +19,7 @@ export default function NaviBar() {
   const [openNavbar, setOpenNavbar] = useState(false)
 
   return (
-    <Navbar color='transparent' navbar className='absolute z-10'>
+    <Navbar color='indigo' navbar className='mb-0'>
       <NavbarContainer>
         <NavbarWrapper>
           <NavbarBrand> SFK</NavbarBrand>
