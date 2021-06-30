@@ -29,7 +29,6 @@ export default function NaviBar() {
             ripple='light'
           />
         </NavbarWrapper>
-        {/* test */}
         <NavbarCollapse open={openNavbar}>
           <Nav>
             <Link href='/' passHref>

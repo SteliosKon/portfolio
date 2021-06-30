@@ -2,29 +2,16 @@ import React from 'react'
 import Image from 'next/image'
 
 const WaveBackground = () => {
+  let rnd = Math.floor(Math.random() * 4) + 1
   return (
     <div className='relative w-full h-80'>
       <Image
-        src='/waves/wave1.svg'
-        width={1440}
-        height={320}
+        src={`/waves/wave${rnd}.svg`}
+        layout='fill'
+        objectFit='cover'
+        quality={100}
         alt='background wave'
       />
-      {/* <Image
-        src='/public/waves/wave2.svg'
-        layout='fill'
-        alt='background wave'
-      />
-      <Image
-        src='/public/waves/wave3.svg'
-        layout='fill'
-        alt='background wave'
-      />
-      <Image
-        src='/public/waves/wave4.svg'
-        layout='fill'
-        alt='background wave'
-      /> */}
     </div>
   )
 }
