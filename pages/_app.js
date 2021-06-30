@@ -1,14 +1,13 @@
 import '@material-tailwind/react/tailwind.css'
 import 'tailwindcss/tailwind.css'
-
-// Components
-import NaviBar from '../components/layout/NaviBar'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <NaviBar />
-      <Component {...pageProps} />
+      <ParallaxProvider>
+        <Component {...pageProps} />
+      </ParallaxProvider>
     </>
   )
 }

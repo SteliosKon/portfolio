@@ -5,9 +5,10 @@ module.exports = {
     extend: {
       colors: {
         base_indigo: '#3f51b5',
+        redish: '#e3204b',
       },
       fontFamily: {
-        sans: ['Roboto', 'sans-serif'],
+        sans: ['Railway', 'Roboto', 'sans-serif'],
       },
       typography: {
         '3xl': {
