@@ -4,7 +4,8 @@ import Particles from 'react-particles-js'
 const styles = {
   root: {
     position: 'absolute',
-    height: '100%',
+    width: '100vw',
+    height: '100vh',
     background: '#000',
     display: 'flex',
     justifyContent: 'center',
@@ -12,12 +13,63 @@ const styles = {
     zIndex: '-1',
   },
 }
+
+const particle_params = {
+  particles: {
+    number: {
+      value: 150,
+    },
+    line_linked: {
+      enable: true,
+      opacity: 0.2,
+    },
+    density: {
+      enable: true,
+      value_area: 1500,
+    },
+    move: {
+      random: true,
+      speed: 0.75,
+    },
+    size: {
+      value: 1,
+    },
+    opacity: {
+      anim: {
+        enable: true,
+        speed: 0.5,
+        opacity_min: 0.7,
+      },
+    },
+  },
+  interactivity: {
+    events: {
+      onclick: {
+        enable: true,
+        mode: 'push',
+      },
+    },
+    modes: {
+      push: {
+        particles_nb: 1,
+      },
+    },
+  },
+  retina_detect: true,
+}
+
 const Welcome = () => {
   return (
     <>
-      <div className='h-screen flex justify-center'>
+      <div className='h-screen w-screen flex justify-center'>
         <div style={styles.root}>
-          <Particles />
+          <Particles
+            canvasClassName='w-screen h-screen'
+            width='100vw'
+            height='100vh'
+            style={{ pointerEvents: 'unset' }}
+            params={particle_params}
+          />
         </div>
         <div className='flex flex-col items-center justify-center'>
           <div className='mb-3'>
