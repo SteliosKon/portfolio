@@ -1,13 +1,13 @@
-import '@material-tailwind/react/tailwind.css'
-import 'tailwindcss/tailwind.css'
-import { ParallaxProvider } from 'react-scroll-parallax'
+import 'styles/collector.scss'
+import Navbar from 'components/layout/Navbar'
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <ParallaxProvider>
+      <div className='container'>
+        <Navbar />
         <Component {...pageProps} />
-      </ParallaxProvider>
+      </div>
     </>
   )
 }

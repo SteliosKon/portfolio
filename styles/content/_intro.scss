@@ -1,0 +1,14 @@
+.introduction {
+  width: 100%;
+  height: 100vh;
+  .primary-text {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    .text {
+      width: 15px;
+      height: 10px;
+      display: inline-block;
+    }
+  }
+}
