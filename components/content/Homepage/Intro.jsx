@@ -1,15 +1,17 @@
-import React, { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { InstagramIcon, FacebookIcon, LinkedInIcon } from 'commons/helpers/svgStore'
-const welcomeText = 'welcome to my website'
+import React, { useState } from 'react'
+import Image from 'next/image'
+import MailModal from './MailModal'
 
 const Intro = () => {
-  const el = useRef()
-  const q = gsap.utils.selector(el)
+  const [mailModalIsOpen, setOpenMailModal] = useState(true)
 
-  useEffect(() => {
-    gsap.from(q('.text'), 1, { rotate: 360, x: -100, opacity: 0 }, 1)
-  })
+  const handleOpenModal = () => {
+    setOpenMailModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setOpenMailModal(false)
+  }
 
   return (
     <div className='introduction'>
@@ -28,20 +30,16 @@ const Intro = () => {
         <div className='text-base social'>
           <span>Find me</span>
 
-          <span>
-            <InstagramIcon />
+          <span onClick={() => window.open('https://github.com/SteliosKon', '_blank')}>
+            <Image src={'/github.svg'} height={32} width={32} alt='github-button' />
           </span>
 
-          <span>
-            <LinkedInIcon />
-          </span>
-
-          <span>
-            <FacebookIcon />
+          <span onClick={() => window.open('https://www.linkedin.com/in/stelioskon/', '_blank')}>
+            <Image src={'/linkedin.svg'} height={32} width={32} alt='linkedin-button' />
           </span>
         </div>
         <div className='intro-btn'>
-          <button className='btn-filled'>
+          <button onClick={handleOpenModal} className='btn-filled'>
             <span>Mail me</span>
           </button>
           <button className='btn-outlined'>
@@ -49,7 +47,10 @@ const Intro = () => {
           </button>
         </div>
       </div>
-      <div className='image-container'>Column 2</div>
+      <div className='image-container'>
+        <Image src={'/banner.svg'} height={500} width={500} alt='github-button' />
+      </div>
+      <MailModal isOpen={mailModalIsOpen} handleCloseModal={handleCloseModal} />
     </div>
   )
 }

@@ -4,8 +4,9 @@
   grid-gap: 20px;
   margin-bottom: 85px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
   .info-container {
-    padding: 0 0 0 3rem;
+    padding-left: 2.5rem;
     .hey {
       margin-bottom: 1rem;
       color: $gray-400;
@@ -19,8 +20,6 @@
       > :last-child {
         display: block;
       }
-    }
-    .job {
     }
     .desc {
       display: flex;
@@ -47,7 +46,5 @@
       display: flex;
       justify-content: space-evenly;
     }
-  }
-  .image-container {
   }
 }

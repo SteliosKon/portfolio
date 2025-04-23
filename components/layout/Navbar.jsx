@@ -45,7 +45,7 @@ const NavBar = () => {
                 Home
               </CustomLink>
             </li>
-            <li>
+            {/* <li>
               <CustomLink href='/projects' className='nav-links'>
                 Projects
               </CustomLink>
@@ -54,12 +54,7 @@ const NavBar = () => {
               <CustomLink href='/about' className='nav-links'>
                 About
               </CustomLink>
-            </li>
-            <li>
-              <CustomLink href='/contact' className='nav-links'>
-                Contact
-              </CustomLink>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
