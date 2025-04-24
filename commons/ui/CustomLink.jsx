@@ -7,10 +7,8 @@ const CustomLink = ({ href, children, ...props }) => {
     color: router.asPath === href ? '#EEBF63' : '#2F2F2F',
   }
   return (
-    <Link href={href}>
-      <a {...props} style={style}>
-        {children}
-      </a>
+    <Link href={href} {...props} style={style}>
+      {children}
     </Link>
   )
 }

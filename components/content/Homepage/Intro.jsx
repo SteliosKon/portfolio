@@ -3,7 +3,7 @@ import Image from 'next/image'
 import MailModal from './MailModal'
 
 const Intro = () => {
-  const [mailModalIsOpen, setOpenMailModal] = useState(true)
+  const [mailModalIsOpen, setOpenMailModal] = useState(false)
 
   const handleOpenModal = () => {
     setOpenMailModal(true)
@@ -40,7 +40,7 @@ const Intro = () => {
         </div>
         <div className='intro-btn'>
           <button onClick={handleOpenModal} className='btn-filled'>
-            <span>Mail me</span>
+            <span>Send me an email</span>
           </button>
           <button className='btn-outlined'>
             <span>Download CV</span>

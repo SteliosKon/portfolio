@@ -1,13 +1,19 @@
 import 'styles/collector.scss'
 import Navbar from 'components/layout/Navbar'
 import { ToastContainer, Bounce } from 'react-toastify'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+// Create a new QueryClient instance
+const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <div className='container'>
         <Navbar />
-        <Component {...pageProps} />
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
       </div>
 
       <ToastContainer
@@ -17,9 +23,7 @@ function MyApp({ Component, pageProps }) {
         newestOnTop={false}
         closeOnClick={false}
         rtl={false}
-        pauseOnFocusLoss
         draggable
-        pauseOnHover
         theme='light'
         transition={Bounce}
       />

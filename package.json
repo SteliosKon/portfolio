@@ -2,13 +2,16 @@
   "name": "portofolio",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://tmy08329lf.execute-api.eu-central-1.amazonaws.com",
   "scripts": {
-    "dev": "NODE_OPTIONS=--openssl-legacy-provider next dev",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.74.4",
+    "axios": "^1.8.4",
     "gsap": "^3.12.7",
     "next": "^15.3.1",
     "react": "^19.1.0",

@@ -1,33 +1,40 @@
+@use './colors';
+
 .btn-filled {
-  background: $primary-yellow;
+  background: colors.$primary-yellow;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
   outline: none;
-  color: $white;
-  width: 151px;
+  color: colors.$white;
   height: 55px;
+  padding: 0 1rem;
   cursor: pointer;
+
   span {
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 24px;
+    white-space: nowrap;
   }
   &:hover {
     opacity: 0.75;
+  }
+  &:disabled {
+    opacity: 0.55;
   }
 }
 
 .btn-outlined {
   width: 184px;
   height: 55px;
-  border: 2px solid $primary-yellow;
+  border: 2px solid colors.$primary-yellow;
   box-sizing: border-box;
   border-radius: 10px;
-  color: $gray-500;
+  color: colors.$gray-500;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +61,7 @@
   background-color: transparent;
   box-sizing: border-box;
   border-radius: 10px;
-  color: $white;
+  color: colors.$white;
   cursor: pointer;
   .btn-hover-inner {
     span {

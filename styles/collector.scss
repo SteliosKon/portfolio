@@ -1,32 +1,32 @@
 // Typography
-@import './foundation/typography';
+@use 'foundation/typography';
 
 // Colors
-@import './foundation/colors';
+@use 'foundation/colors';
 
 // Classes
-@import './foundation/classes';
+@use 'foundation/classes';
 
 // Layout
-@import './layout/navbar';
+@use 'layout/navbar';
 
 // Content
-@import './content/intro';
+@use 'content/intro';
 
 // mail modal
-@import './content/mailModal';
+@use 'content/mailModal';
 
 // Reset
 body {
   margin: 0;
   padding: 0;
-  font-family: $font-family;
+  font-family: typography.$font-family;
 }
 
 .container {
   max-width: 80rem;
   width: 100%;
-  background-color: $white;
+  background-color: colors.$white;
   margin: auto;
   padding-top: 200px;
 }

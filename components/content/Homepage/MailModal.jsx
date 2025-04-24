@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal'
-import { toast, Bounce } from 'react-toastify'
+import { toast } from 'react-toastify'
+import { useMutation } from '@tanstack/react-query'
+import { sendEmailRequest } from './api'
+
+const notifySuccess = () => toast('Stelios received the email. Thank you!')
+const notifyError = () => toast('Something went wrong')
 
 const customStyles = {
   content: {
@@ -21,22 +26,41 @@ const customStyles = {
 
 const MailModal = ({ isOpen, handleCloseModal }) => {
   const [message, setMessage] = useState('')
-  const [email, setEmail] = useState('')
-  const [delay, setDelay] = useState('')
 
-  const notify = () => toast('Wow so easy !')
+  const { mutate, status } = useMutation({
+    mutationKey: ['email-send'],
+    mutationFn: sendEmailRequest,
+    onSuccess: () => {
+      notifySuccess()
+      handleCloseModal()
+    },
+    onError: () => notifyError(),
+  })
+
+  const isLoading = status == 'pending'
+
+  const handleSendEmail = () => {
+    mutate({
+      waitSeconds: 10,
+      message: `This message is coming from your portofolio website: ${message}`,
+      email: 'steliosnteloss@gmail.com',
+    })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission logic here (like sending an email with delay)
-    console.log({ message, email, delay })
-    notify()
+    handleSendEmail()
+  }
+
+  const onRequestClose = () => {
+    handleCloseModal()
+    setMessage('')
   }
 
   return (
     <Modal
       isOpen={isOpen}
-      onRequestClose={handleCloseModal}
+      onRequestClose={onRequestClose}
       style={customStyles}
       contentLabel='Example Modal'
     >
@@ -53,33 +77,8 @@ const MailModal = ({ isOpen, handleCloseModal }) => {
             />
           </div>
 
-          <div className='form-group'>
-            <label htmlFor='email'>Your Email Address</label>
-            <input
-              type='email'
-              id='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder='Enter your email'
-              required
-            />
-          </div>
-
-          <div className='form-group'>
-            <label htmlFor='delay'>Add Delay to Your Email</label>
-            <input
-              type='number'
-              id='delay'
-              value={delay}
-              onChange={(e) => setDelay(e.target.value)}
-              placeholder='Enter delay in seconds'
-              min='1'
-              required
-            />
-          </div>
-
-          <button type='submit' className='submit-btn'>
-            Submit
+          <button type='submit' className='submit-btn' disabled={isLoading}>
+            {isLoading ? <span className='spinner'></span> : 'Submit'}
           </button>
         </form>
       </div>
